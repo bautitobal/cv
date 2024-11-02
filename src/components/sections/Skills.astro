@@ -1,0 +1,78 @@
+---
+import Section from "../Section.astro";
+
+import { skills } from "@cv"
+
+import HTML from "@/icons/html.astro"
+import CSS3 from "@/icons/css.astro"
+import TypeScript from "@/icons/type.astro"
+import React from "@/icons/react.astro"
+import NodeJS from "@/icons/node.astro"
+import SQLite from "@/icons/SQLite.astro"
+import Git from "@/icons/git.astro"
+import GitHub from "@/icons/GitHub.astro"
+import Tailwind from "@/icons/tailwind.astro"
+import Next from "@/icons/next.astro"
+import JavaScript from "@/icons/javascript.astro";
+import C from "@/icons/c.astro";
+import Python from "@/icons/python.astro";
+import Bash from "@/icons/bash.astro";
+// TODO: Obsidian
+
+
+const SKILLS_ICONS: Record<string, any> = {
+    C,
+    Python,
+    HTML,
+    CSS3,
+    JavaScript,
+    TypeScript,
+    React,
+    NodeJS,
+    SQLite,
+    Git,
+    GitHub,
+    Next,
+    Tailwind,
+    Bash
+
+}
+
+---
+
+<Section title="Skills">
+    <ul>
+        {
+            skills.map(({ name }) => {
+                const iconName = name == "NextJS" ? "Next" : name
+                const Icon = SKILLS_ICONS[iconName]
+                return(
+                    <li>
+                        {Icon && <Icon />}<span>{name}</span>
+                    </li>
+                )
+            })
+        }
+    </ul>
+</Section>
+
+<style>
+    ul {
+        display: inline-flex;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    li {
+        align-items: center;
+        background: #eee;
+        border-radius: 6px;
+        color: #000;
+        display: flex;
+        font-size: .8rem;
+        font-weight: 500;
+        gap: 4px;
+        padding: 0.2rem .6rem;
+    }
+</style>
+

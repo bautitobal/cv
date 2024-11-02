@@ -1,0 +1,234 @@
+{
+  "basics": {
+    "name": "Bautista Tobal",
+    "label": "Computer Engineering Student with over 3 years of experience in Frontend Development",
+    "image": "/profile-pic.webp",
+    "email": "bautitobal11@gmail.com",
+    "phone": "+54 11-5617-3311",
+    "url": "https://bautitobal.netlify.app",
+    "summary": "+3 years of experience in web development and Python. Computer Engineering student and Frontend & Python Developer from Buenos Aires, Argentina. Also, one of my passions is Cybersecurity.",
+    "location": {
+      "address": "",
+      "postalCode": "",
+      "city": "Buenos Aires",
+      "countryCode": "AR",
+      "region": "Argentina"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "bautistatobal",
+        "url": "https://linkedin.com/in/bautistatobal"
+      },
+      {
+        "network": "GitHub",
+        "username": "bautitobal",
+        "url": "https://github.com/bautitobal"
+      },
+      {
+        "network": "X",
+        "username": "bautitobal",
+        "url": "https://x.com/bautitobal"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Freelance",
+      "position": "Frontend & Python Developer",
+      "url": "https://github.com/bautitobal",
+      "startDate": "2024-06-01",
+      "endDate": null,
+      "summary": "Develop tailored web solutions for clients, focusing on responsive web design, animated websites, and e-commerce platforms. Specialized in delivering high-quality, user-friendly websites that meet business needs.",
+      "highlights": ["Freelancer"]
+    },
+    {
+      "name": "Dentalis",
+      "position": "Sales Manager",
+      "url": "https://aprenderaemprender.org.ar/dentalis/",
+      "startDate": "2022-03-14",
+      "endDate": "2024-02-10",
+      "summary": "Managed operations for a dental care product line, specializing in dentifrice pills. Developed strategic sales initiatives, expanded the client base, and increased market penetration through personalized customer engagement and targeted marketing campaigns.",
+      "highlights": ["Started the company"]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Organization",
+      "position": "Volunteer",
+      "url": "https://organization.com/",
+      "startDate": "2012-01-01",
+      "endDate": "2013-01-01",
+      "summary": "Description…",
+      "highlights": ["Awarded 'Volunteer of the Month'"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "National University of La Matanza",
+      "url": "https://www.unlam.edu.ar/",
+      "area": "Computer Engineer",
+      "studyType": "Bachelor",
+      "startDate": "2024-06-14",
+      "endDate": "2029-11-30",
+      "score": "4.0",
+      "courses": [""]
+    }
+  ],
+  "awards": [
+    {
+      "title": "Award",
+      "date": "2014-11-01",
+      "awarder": "Company",
+      "summary": "There is no spoon."
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Certificate",
+      "date": "2021-11-07",
+      "issuer": "Company",
+      "url": "https://certificate.com"
+    }
+  ],
+  "publications": [
+    {
+      "name": "Publication",
+      "publisher": "Company",
+      "releaseDate": "2014-10-01",
+      "url": "https://publication.com",
+      "summary": "Description…"
+    }
+  ],
+  "skills": [
+    {
+      "name": "C",
+      "level": "Advanced",
+      "keywords": ["Codeblocks", "Structured Programming", "Pointers"]
+    },
+    {
+      "name": "JavaScript",
+      "level": "Advanced",
+      "keywords": [""]
+    },
+    {
+      "name": "Python",
+      "level": "Intermediate",
+      "keywords": [""]
+    },
+    {
+      "name": "HTML",
+      "level": "Master",
+      "keywords": [""]
+    },
+    {
+      "name": "CSS3",
+      "level": "Advanced",
+      "keywords": [""]
+    },
+    {
+      "name": "Bash",
+      "level": "Beginner",
+      "keywords": [""]
+    },
+    {
+      "name": "Tailwind",
+      "level": "Intermediate",
+      "keywords": [""]
+    },
+    {
+      "name": "NodeJS",
+      "level": "Beginner",
+      "keywords": [""]
+    },
+    {
+      "name": "SQLite",
+      "level": "Beginner",
+      "keywords": [""]
+    },
+    {
+      "name": "Git",
+      "level": "Intermediate",
+      "keywords": [""]
+    },
+    {
+      "name": "GitHub",
+      "level": "Advanced",
+      "keywords": [""]
+    },
+    {
+      "name": "NextJS",
+      "level": "Trainee",
+      "keywords": [""]
+    },
+    {
+      "name": "React",
+      "level": "Trainee",
+      "keywords": [""]
+    },
+    {
+      "name": "Web Development",
+      "level": "Advanced",
+      "keywords": [""]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Spanish",
+      "fluency": "Native"
+    },
+    {
+      "language": "English",
+      "fluency": "Intermediate (B1-B2)"
+    },
+    {
+      "language": "German",
+      "fluency": "Basic"
+    }
+  ],
+  "interests": [
+    {
+
+    }
+  ],
+  "references": [
+    {
+      "name": "",
+      "reference": "Reference…"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Real Estate Landing Page",
+      "isActive": true,
+      "description": "Developed a responsive landing page for a real estate business using NextJS, Tailwind, React, Leaflet & SwiperJS",
+      "highlights": ["Responsive Design", "Interactive Maps"],
+      "url": "https://landing-page-bautitobal.netlify.app/",
+      "repo": "https://github.com/bautitobal/landing-page"
+    },
+    {
+      "name": "Web Scrapping",
+      "isActive": false,
+      "description": "A flexible program for scraping movie data, enabling data collection for analysis and visualization purposes.",
+      "highlights": ["Open Source project!", "Flexibility for scrapping movies"],
+      "url": null,
+      "repo": "https://github.com/bautitobal/web-scrapping"
+    },
+    {
+      "name": "Portfolio",
+      "isActive": true,
+      "description": "My digital portfolio created with Astro, Tailwind, and JavaScript, featuring a responsive layout optimized for both desktop and mobile views.",
+      "highlights": ["Responsive layout adaptable to both desktop and mobile, showcasing projects and skills."],
+      "url": "https://bautitobal.netlify.app/",
+      "repo": "https://github.com/bautitobal/portfolio"
+    },
+    {
+      "name": "Unlam++",
+      "isActive": false,
+      "description": "Coming Soon... A project for refactoring and redesigning my university's website (for educational purposes).",
+      "highlights": ["Objective: Create a more modern, user-friendly design to improve site navigation and accessibility."],
+      "url": null,
+      "repo": null
+    }
+  ]
+}

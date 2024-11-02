@@ -1,54 +1,72 @@
-# Astro Starter Kit: Basics
+<div align="center">
+<img src="profile-pic.jpg" height="90px" width="auto" /> 
+<h2>
+    Minimalist CV for web and pdf layout
+</h2>
+<p>
+CV JSON Schema: <a href="https://jsonresume.org/schema/">jsonresume.org</a>
+</p>
 
-```sh
-npm create astro@latest -- --template basics
+<p>
+Design based on <a href="https://github.com/BartoszJarocki/cv">Bartosz Jarocki</a>
+
+</p>
+
+</div>
+
+<div align="center">
+    <a href="#start">
+        Start
+    </a>
+    <span>&nbsp;&bull;&nbsp;</span>
+    <a href="#-license">
+        License
+    </a>
+</div>
+
+<p></p>
+<div align="center">
+
+![Astro Badge](https://img.shields.io/badge/Astro-BC52EE?logo=astro&logoColor=fff&style=flat)
+![GitHub stars](https://img.shields.io/github/stars/bautitobal/cv)
+![GitHub issues](https://img.shields.io/github/issues/midudev/minimalist-portfolio-json)
+![GitHub forks](https://img.shields.io/github/forks/bautitobal/cv)
+![GitHub PRs](https://img.shields.io/github/issues-pr/bautitobal/cv)
+
+</div>
+
+<img src="/public/cv_portada.webp"></img>
+
+## 🛠️ Stack
+
+- [**Astro**](https://astro.build/)
+- [**Typescript**](https://www.typescriptlang.org/)
+- [**Ninja Keys**](https://github.com/ssleptsov/ninja-keys) | Drop-down menu with keyboard shortcuts made in pure Javascript.
+
+## Start
+
+### 1. Clone this repo
+
+```bash
+# If you're using pnpm, you have to enable it this way on MacOS, WSL & Linux:
+corepack enable
+corepack prepare pnpm@latest --activate bautitobal/cv
+
+# Initialize the project
+npm create astro@latest --template
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+### 2. Add YOUR content:
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Edit `cv.json` to create your own printable CV.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+### 3. Launch:
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+# Enjoy!
+npm dev
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🔑 License
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+[MIT](LICENSE) - Created by [**bautitobal**](https://bautitobal.netlify.app).
