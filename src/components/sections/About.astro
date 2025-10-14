@@ -1,12 +1,15 @@
 ---
 import Section from "../Section.astro";
+import TranslatedText from "@/components/TranslatedText.astro";
+import { getPropertyBasedOnLanguage } from '@/i18n/utils';
+import { basics } from "@cv";
 
-import { basics } from "@cv"
-const { summary } = basics
+const summary = getPropertyBasedOnLanguage<string>(basics, 'summary');
+const resumen = getPropertyBasedOnLanguage<string>(basics, 'resumen') || '';
 ---
 
 <Section title="About">
     <p>
-        {summary}
+        <TranslatedText en={summary} es={resumen} />
     </p>
 </Section>

@@ -2,11 +2,13 @@
   "basics": {
     "name": "Bautista Tobal",
     "label": "Computer Engineering Student with over 3 years of experience in Frontend Development",
+    "etiqueta": "Estudiante de Ingeniería en Informática con más de 3 años de experiencia en Desarrollo Frontend",
     "image": "/profile-pic.webp",
     "email": "bautitobal11@gmail.com",
     "phone": "+54 11-5617-3311",
     "url": "https://bautitobal.netlify.app",
     "summary": "+3 years of experience in web development and Python. Computer Engineering student and Frontend & Python Developer from Buenos Aires, Argentina. Also, one of my passions is Cybersecurity.",
+    "resumen": "+3 años de experiencia en desarrollo web y Python. Estudiante de Ingeniería en Informática y Desarrollador Frontend & Python de Buenos Aires, Argentina. También, una de mis pasiones es la Ciberseguridad.",
     "location": {
       "address": "",
       "postalCode": "",
@@ -36,20 +38,26 @@
     {
       "name": "Freelance",
       "position": "Frontend & Python Developer",
+      "posicion": "Desarrollador Frontend & Python",
       "url": "https://github.com/bautitobal",
       "startDate": "2024-06-01",
       "endDate": null,
       "summary": "Develop tailored web solutions for clients, focusing on responsive web design, animated websites, and e-commerce platforms. Specialized in delivering high-quality, user-friendly websites that meet business needs.",
-      "highlights": ["Freelancer"]
+      "resumen": "Desarrollo soluciones web personalizadas para clientes, enfocándome en diseño web responsive, sitios web animados y plataformas de e-commerce. Especializado en entregar sitios web de alta calidad y fáciles de usar que satisfacen las necesidades empresariales.",
+      "highlights": ["Freelancer"],
+      "destacados": ["Freelancer"]
     },
     {
       "name": "Dentalis",
       "position": "Sales Manager",
+      "posicion": "Gerente de Ventas",
       "url": "https://aprenderaemprender.org.ar/dentalis/",
       "startDate": "2022-03-14",
       "endDate": "2024-02-10",
       "summary": "Managed operations for a dental care product line, specializing in dentifrice pills. Developed strategic sales initiatives, expanded the client base, and increased market penetration through personalized customer engagement and targeted marketing campaigns.",
-      "highlights": ["Started the company", "College project", "Entrepreneurship"]
+      "resumen": "Gestioné operaciones para una línea de productos de cuidado dental, especializada en pastillas dentífricas. Desarrollé iniciativas estratégicas de ventas, expandí la base de clientes y aumenté la penetración en el mercado a través de la participación personalizada del cliente y campañas de marketing dirigidas.",
+      "highlights": ["Started the company", "College project", "Entrepreneurship"],
+      "destacados": ["Fundé la empresa", "Proyecto universitario", "Emprendimiento"]
     }
   ],
   "volunteer": [
@@ -66,9 +74,12 @@
   "education": [
     {
       "institution": "National University of La Matanza",
+      "institucion": "Universidad Nacional de La Matanza",
       "url": "https://unlam.edu.ar/",
       "area": "Computer Science",
+      "area_es": "Ingeniería en Informática",
       "studyType": "Bachelor",
+      "tipoEstudio": "Licenciatura",
       "startDate": "2024-06-14",
       "endDate": "2029-11-30",
       "score": "4.0",
@@ -104,17 +115,20 @@
     {
       "name": "C",
       "level": "Advanced",
-      "keywords": ["Codeblocks", "Structured Programming", "Pointers"]
+      "keywords": ["Codeblocks", "Structured Programming", "Pointers"],
+      "palabras_clave": ["Codeblocks", "Programación Estructurada", "Punteros"]
     },
     {
       "name": "JavaScript",
       "level": "Advanced",
-      "keywords": ["ES6", "DOM Manipulation", "Asynchronous Programming"]
+      "keywords": ["ES6", "DOM Manipulation", "Asynchronous Programming"],
+      "palabras_clave": ["ES6", "Manipulación del DOM", "Programación Asíncrona"]
     },
     {
       "name": "Python",
       "level": "Intermediate",
-      "keywords": ["Scripting", "Web Scraping", "Backend Development"]
+      "keywords": ["Scripting", "Web Scraping", "Backend Development"],
+      "palabras_clave": ["Scripting", "Web Scraping", "Desarrollo Backend"]
     },
     {
       "name": "HTML",
@@ -160,15 +174,21 @@
   "languages": [
     {
       "language": "Spanish",
-      "fluency": "Native"
+      "idioma": "Español",
+      "fluency": "Native",
+      "fluidez": "Nativo"
     },
     {
       "language": "English",
-      "fluency": "Intermediate (B2)"
+      "idioma": "Inglés",
+      "fluency": "Intermediate (B2)",
+      "fluidez": "Intermedio (B2)"
     },
     {
       "language": "German",
-      "fluency": "A2"
+      "idioma": "Alemán",
+      "fluency": "A2",
+      "fluidez": "A2"
     }
   ],
   "interests": [
@@ -187,47 +207,64 @@
       "name": "Real Estate Landing Page",
       "isActive": true,
       "description": "Developed a responsive landing page for a real estate business using NextJS, Tailwind, React, Leaflet & SwiperJS",
+      "descripcion": "Desarrollé una landing page responsiva para un negocio inmobiliario utilizando NextJS, Tailwind, React, Leaflet y SwiperJS",
       "highlights": ["Responsive Design", "Interactive Maps"],
+      "destacados": ["Diseño Responsivo", "Mapas Interactivos"],
       "url": "https://landing-page-bautitobal.netlify.app/",
       "repo": "https://github.com/bautitobal/landing-page"
     },
     {
       "name": "choribot",
+      "nombre": null,
       "isActive": true,
       "description": "A Twitch chat bot developed in Python, designed to enhance viewer engagement and interaction during live streams.",
+      "descripcion": "Un bot de chat para Twitch desarrollado en Python, diseñado para mejorar la participación e interacción de los espectadores durante transmisiones en vivo.",
       "highlights": ["Interactive commands", "Moderation tools", "AI integration", "Scripting capabilities"],
+      "destacados": ["Comandos interactivos", "Herramientas de moderación", "Integración de IA", "Capacidades de scripting"],
       "url": null,
       "repo": "https://github.com/bautitobal/choribot"
     },
     {
       "name": "Web Scrapping",
+      "nombre": null,
       "isActive": false,
       "description": "A flexible program for scraping movie data, enabling data collection for analysis and visualization purposes.",
+      "descripcion": "Un programa flexible para extraer datos de películas, permitiendo la recolección de datos para análisis y visualización.",
       "highlights": ["Open Source project!", "Flexibility for scrapping movies"],
+      "destacados": ["¡Proyecto de código abierto!", "Flexibilidad para extraer datos de películas"],
       "url": null,
       "repo": "https://github.com/bautitobal/web-scrapping"
     },
     {
       "name": "Portfolio",
+      "nombre": "Portafolio",
       "isActive": true,
       "description": "My digital portfolio created with Astro, Tailwind, and JavaScript, featuring a responsive layout optimized for both desktop and mobile views.",
+      "descripcion": "Mi portafolio digital creado con Astro, Tailwind y JavaScript, con un diseño responsivo optimizado tanto para escritorio como para dispositivos móviles.",
       "highlights": ["Responsive layout adaptable to both desktop and mobile, showcasing projects and skills."],
+      "destacados": ["Diseño responsivo adaptable tanto para escritorio como para móvil, mostrando proyectos y habilidades."],
       "url": "https://bautitobal.netlify.app/",
       "repo": "https://github.com/bautitobal/portfolio"
     },
     {
       "name": "Crypto News Scrapper",
+      "nombre": "Extractor de Noticias Cripto",
       "isActive": false,
       "description": "A Python-based web scrapper that collects and organizes the latest cryptocurrency news from various online sources.",
+      "descripcion": "Un extractor web basado en Python que recolecta y organiza las últimas noticias sobre criptomonedas de varias fuentes en línea.",
       "highlights": ["Automated data extraction", "Organized news presentation"],
+      "destacados": ["Extracción automatizada de datos", "Presentación organizada de noticias"],
       "url": null,
       "repo": "https://github.com/bautitobal/crypto-news-scrapper"
     },
     {
       "name": "bautitobal.com",
+      "nombre": null,
       "isActive": false,
       "description": "Coming Soon... A personal blog website where I will share articles about diverse topics including technology, programming, and personal experiences.",
-      "highlights":  null,
+      "descripcion": "Próximamente... Un sitio web de blog personal donde compartiré artículos sobre diversos temas incluyendo tecnología, programación y experiencias personales.",
+      "highlights": ["Release date: December 2025"],
+      "destacados": ["Fecha de lanzamiento: Diciembre 2025"],
       "url": null,
       "repo": null
     }

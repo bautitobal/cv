@@ -1,6 +1,8 @@
 ---
 import Section from "../Section.astro";
 import GitHub from "@/icons/GitHub.astro";
+import "astro/jsx-runtime";
+
 
 import { projects } from '@cv'
 ---
@@ -8,16 +10,19 @@ import { projects } from '@cv'
 <Section title="Projects">
     <ul>
         {
-            projects.map(({ url, description, highlights, name, isActive, repo}) => {
+            projects.map((project) => {
+                const { url, description, highlights, name, isActive, repo, nombre, descripcion, destacados } = project;
                 return (
                     <li>
                         <article>
                             <header>
                                 <h3>
                                     <a href={url} target="_blank" rel="noopener noreferrer" title={`See ${name}`}>
-                                        {name}
+                                        <span class="project-name" data-en={name} data-es={nombre || name}>
+                                            {name}
+                                        </span>
                                     </a>
-                                    {isActive && <span>&bull;</span>}
+                                    {isActive && <span class="active-indicator">&bull;</span>}
                                     {repo && (
                                         <a 
                                             class="repo-code-link"
@@ -30,17 +35,24 @@ import { projects } from '@cv'
                                         </a>
                                     )}
                                 </h3>
-                                <p>{description}</p>
+                                <p data-en={description} data-es={descripcion || description}>
+                                    {description}
+                                </p>
                             </header>
                             <footer>
-                                {highlights && (
+                                {highlights && destacados && highlights.length === destacados.length ? (
+                                    highlights.map((highlight, index) => {
+                                        return (
+                                            <span data-en={highlight} data-es={destacados[index]}>{highlight}</span>
+                                        )
+                                    })
+                                ) : highlights && (
                                     highlights.map((highlight) => {
                                         return (
                                             <span>{highlight}</span>
                                         )
                                     })
                                 )}
-
                             </footer>
                         </article>
                     </li>
@@ -90,12 +102,16 @@ import { projects } from '@cv'
         margin-bottom: 4px;
     }
 
-    article h3 span {
+    article h3 .active-indicator {
         color: rgb(0, 188, 47);
         animation-name: flicker;
         animation-duration: 3s;
         animation-timing-function: ease-in;
         animation-iteration-count: infinite;
+    }
+    
+    article h3 .project-name {
+        color: inherit;
     }
 
     footer {
@@ -147,7 +163,7 @@ import { projects } from '@cv'
     }
 
     @media print {
-        article h3 span {
+        article h3 .active-indicator {
             animation-name: none;
         }
     }

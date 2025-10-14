@@ -1,0 +1,161 @@
+---
+---
+
+<div class="language-switcher no-print">
+  <button aria-label="Switch to English" class="lang-button" data-lang="en">
+    <span>EN</span>
+  </button>
+  <span class="separator">/</span>
+  <button aria-label="Cambiar a español" class="lang-button" data-lang="es">
+    <span>ES</span>
+  </button>
+</div>
+
+<script>
+  const LANGUAGES = {
+    ENGLISH: 'en',
+    SPANISH: 'es'
+  };
+  const STORAGE_KEY = 'preferred-language';
+  
+  // Obtener el idioma actual del localStorage o usar 'en' por defecto
+  const getLanguage = () => {
+    return localStorage.getItem(STORAGE_KEY) || LANGUAGES.ENGLISH;
+  };
+  
+  // Guardar el idioma seleccionado en localStorage
+  const saveLanguage = (lang) => {
+    localStorage.setItem(STORAGE_KEY, lang);
+  };
+  
+  // Función para aplicar el idioma seleccionado
+  const applyLanguage = (lang) => {
+    console.log(`Applying language: ${lang}`);
+    const htmlElement = document.documentElement;
+    htmlElement.setAttribute('lang', lang);
+    htmlElement.setAttribute('data-language', lang);
+    
+    // Actualizar apariencia de los botones
+    updateButtonsAppearance(lang);
+    
+    // Disparar un evento personalizado para que otros componentes puedan reaccionar
+    const event = new CustomEvent('languagechange', { detail: { language: lang } });
+    document.dispatchEvent(event);
+    
+    // Importar dinámicamente el traductor y actualizar todos los textos
+    import('../i18n/translator.js').then(module => {
+      module.updateAllTranslatedTexts();
+    });
+    
+    console.log(`Language attributes set: lang=${htmlElement.getAttribute('lang')}, data-language=${htmlElement.getAttribute('data-language')}`);
+  };
+  
+  // Función para actualizar la apariencia de los botones según el idioma activo
+  const updateButtonsAppearance = (activeLang) => {
+    const buttons = document.querySelectorAll('.lang-button');
+    
+    buttons.forEach(button => {
+      const buttonLang = button.getAttribute('data-lang');
+      button.classList.toggle('active', buttonLang === activeLang);
+      
+      // Hacer el botón del idioma activo no clickeable
+      if (buttonLang === activeLang) {
+        button.setAttribute('disabled', '');
+      } else {
+        button.removeAttribute('disabled');
+      }
+    });
+  };
+  
+  // Inicializar el idioma
+  const initLanguage = () => {
+    const currentLang = getLanguage();
+    applyLanguage(currentLang);
+    
+    // Agregar evento click a los botones de idioma
+    const buttons = document.querySelectorAll('.lang-button');
+    console.log(`Found ${buttons.length} language buttons`);
+    
+    buttons.forEach(button => {
+      const buttonLang = button.getAttribute('data-lang');
+      console.log(`Setting up click listener for ${buttonLang} button`);
+      
+      button.addEventListener('click', () => {
+        console.log(`Button clicked: ${buttonLang}`);
+        
+        if (buttonLang && !button.hasAttribute('disabled')) {
+          console.log(`Saving language: ${buttonLang}`);
+          saveLanguage(buttonLang);
+          applyLanguage(buttonLang);
+          
+          // No recargamos la página, en su lugar dejamos que los componentes reaccionen al evento
+          console.log('Language updated without page reload');
+        } else {
+          console.log(`Button ${buttonLang} is disabled or invalid, not changing language`);
+        }
+      });
+    });
+  };
+  
+  // Ejecutar cuando el DOM esté cargado
+  document.addEventListener('DOMContentLoaded', initLanguage);
+  
+  // También ejecutar inmediatamente en caso de que el script se cargue después
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLanguage);
+  } else {
+    initLanguage();
+  }
+</script>
+
+<style>
+  .language-switcher {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    background-color: var(--color-card, #f9f9f9);
+    padding: 4px 12px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .lang-button {
+    background: none;
+    border: none;
+    padding: 4px 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-muted, #666);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+  
+  .lang-button:hover:not([disabled]) {
+    color: var(--color-text, #111);
+    background-color: var(--color-card-hover, #f3f3f3);
+  }
+  
+  .lang-button.active {
+    color: var(--color-primary, #0070f3);
+    font-weight: bold;
+    cursor: default;
+  }
+  
+  .separator {
+    color: var(--color-text-muted, #666);
+    opacity: 0.5;
+  }
+  
+  @media print {
+    .language-switcher {
+      display: none;
+    }
+  }
+</style>

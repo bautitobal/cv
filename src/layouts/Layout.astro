@@ -1,6 +1,8 @@
 ---
 import { basics } from "@cv"
 import ThemeSwitcher from "@/components/ThemeSwitcher.astro";
+import LanguageSwitcher from "@/components/LanguageSwitcher.astro";
+import { getCurrentLanguage, getPropertyBasedOnLanguage } from "@/i18n/utils";
 
 interface Props {
 	title: string;
@@ -8,11 +10,12 @@ interface Props {
 
 const { title } = Astro.props;
 
-const { image, summary, url } = basics
+const { image, url } = basics;
+const summary = getPropertyBasedOnLanguage<string>(basics, 'summary', 'en');
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-language="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={summary} />
@@ -35,7 +38,7 @@ const { image, summary, url } = basics
 		<meta name="twitter:image" content="" />
 		<title>{title}</title>
 		
-		<!-- Script para evitar flash al cargar -->
+		<!-- Script para detección inicial de tema e idioma -->
 		<script is:inline>
 			// Detecta el tema preferido inmediatamente para evitar flash
 			(function() {
@@ -46,11 +49,30 @@ const { image, summary, url } = basics
 				
 				document.documentElement.classList.toggle('dark', isDark);
 				document.documentElement.setAttribute('data-theme', theme);
+				
+				// Detecta el idioma preferido
+				const lang = localStorage.getItem('preferred-language') || 'en';
+				document.documentElement.setAttribute('lang', lang);
+				document.documentElement.setAttribute('data-language', lang);
+				
+				// Marcar como inicializado para que otros scripts lo sepan
+				window.i18nInitialized = true;
 			})();
+		</script>
+		
+		<!-- Cargar el script de traducción global -->
+		<script>
+			// Importar el inicializador de traducción en cuanto se cargue el DOM
+			document.addEventListener('DOMContentLoaded', () => {
+				import('../i18n/translator.js').then(module => {
+					module.initializeTranslator();
+				});
+			});
 		</script>
 	</head>
 	<body>
 		<ThemeSwitcher />
+		<LanguageSwitcher />
 		<slot />
 	</body>
 </html>

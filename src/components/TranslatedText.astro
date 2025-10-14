@@ -1,0 +1,39 @@
+---
+import { getCurrentLanguage } from '../i18n/utils';
+
+interface Props {
+  en: string;
+  es: string;
+  tag?: string;
+  class?: string;
+}
+
+interface Props {
+  en: string;
+  es: string;
+  tag?: string;
+  class?: string;
+  translatorInitialized?: boolean;
+  translatorScriptLoaded?: boolean;
+}
+
+const { en, es, tag = 'span', class: className = '' } = Astro.props;
+---
+
+{tag === 'div' && <div class={className} data-en={en} data-es={es}>{en}</div>}
+{tag === 'span' && <span class={className} data-en={en} data-es={es}>{en}</span>}
+{tag === 'p' && <p class={className} data-en={en} data-es={es}>{en}</p>}
+{tag === 'h1' && <h1 class={className} data-en={en} data-es={es}>{en}</h1>}
+{tag === 'h2' && <h2 class={className} data-en={en} data-es={es}>{en}</h2>}
+{tag === 'h3' && <h3 class={className} data-en={en} data-es={es}>{en}</h3>}
+
+<script>
+  // Importar el inicializador de traducción solo una vez por página
+  if (!window.translatorInitialized) {
+    window.translatorInitialized = true;
+    
+    import('../i18n/translator.js').then(module => {
+      module.initializeTranslator();
+    });
+  }
+</script>

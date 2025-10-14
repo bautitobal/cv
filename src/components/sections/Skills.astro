@@ -45,12 +45,23 @@ const SKILLS_ICONS: Record<string, any> = {
 <Section title="Skills">
     <ul>
         {
-            skills.map(({ name }) => {
+            skills.map((skill) => {
+                const { name, keywords, palabras_clave } = skill;
                 const iconName = name == "NextJS" ? "Next" : name == "CSS" ? "CSS3" : name == "TypeScript" ? "TypeScript" : name == "Astro" ? "AstroJS" : name
                 const Icon = SKILLS_ICONS[iconName]
+                
+                // Si hay un nivel traducido, agregarlo como atributos de datos
+                //const hasTranslatedLevel = level && nivel;
+                
                 return(
                     <li>
-                        {Icon && <Icon />}<span>{name}</span>
+                        {Icon && <Icon />}
+                        <span>{name}</span>
+                        {/*{hasTranslatedLevel && 
+                            <span class="skill-level" data-en={level} data-es={nivel}>
+                                {level}
+                            </span>
+                        }*/}   
                     </li>
                 )
             })
@@ -75,6 +86,12 @@ const SKILLS_ICONS: Record<string, any> = {
         font-weight: 500;
         gap: 4px;
         padding: 0.2rem .6rem;
+    }
+    
+    .skill-level {
+        font-size: 0.65rem;
+        opacity: 0.8;
+        margin-left: 2px;
     }
 </style>
 

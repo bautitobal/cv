@@ -1,5 +1,7 @@
 ---
 import Section from "../Section.astro"
+import "astro/jsx-runtime";
+
 
 import { education } from "@cv"
 ---
@@ -7,7 +9,8 @@ import { education } from "@cv"
 <Section title="Education">
     <ul>
         {
-            education.map(({ institution, startDate, endDate, area }) => {
+            education.map((edu) => {
+                const { institution, startDate, endDate, area, institucion, area_es } = edu;
                 const startYear = new Date(startDate).getFullYear()
                 const endYear =
                 endDate != null ? new Date(endDate).getFullYear() : "Actual"
@@ -19,14 +22,14 @@ import { education } from "@cv"
                         <header>
                         
                             <div>
-                                <h3>{institution}</h3>
+                                <h3 data-en={institution} data-es={institucion || institution}>{institution}</h3>
                             </div>
 
                             <time>{years}</time>
                         </header>
 
                         <footer>
-                            <p>{area}</p>
+                            <p data-en={area} data-es={area_es || area}>{area}</p>
                         </footer>
                         </article>
                     </li>

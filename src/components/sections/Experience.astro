@@ -2,11 +2,14 @@
 import Section from "../Section.astro";
 
 import { work } from '@cv'
+import "astro/jsx-runtime";
+
 ---
 
 <Section title="Experience">
     <ul>
-        {work.map(({ name, startDate, endDate, position, summary, url}) => {
+        {work.map((job) => {
+            const { name, startDate, endDate, position, summary, url, posicion, resumen } = job;
             const startYear = new Date(startDate).getFullYear()
             const endYear = endDate != null ? new Date(endDate).getFullYear() : "Actual"
             // const years = `${startYear} - ${endYear}`
@@ -20,7 +23,7 @@ import { work } from '@cv'
                                         {name}
                                     </a>
                                 </h3>
-                                <h4>{position}</h4>
+                                <h4 data-en={position} data-es={posicion || position}>{position}</h4>
                             </div>
                             <div>
                                 <time datetime={startDate} data-title={startDate}>
@@ -33,7 +36,7 @@ import { work } from '@cv'
                             </div>
                         </header>
                         <footer>
-                            <p>{summary}</p>
+                            <p data-en={summary} data-es={resumen || summary}>{summary}</p>
                         </footer>
                     </article>
                 </li>
