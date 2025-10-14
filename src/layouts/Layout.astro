@@ -169,7 +169,7 @@ const summary = getPropertyBasedOnLanguage<string>(basics, 'summary', 'en');
 	}
 	
 	main {
-		padding-top: 80px; /* Para compensar la altura de la barra de navegación */
+		padding-top: 70px;
 	}
 
 	a {
@@ -232,6 +232,20 @@ const summary = getPropertyBasedOnLanguage<string>(basics, 'summary', 'en');
 
 		article {
 			break-inside: avoid;
+		}
+
+		/* Eliminar espacios en blanco extra en impresión */
+		body {
+			margin-bottom: 0 !important;
+		}
+
+		main {
+			padding-bottom: 0 !important;
+		}
+
+		/* Asegurar que el contenido no tenga espacios en blanco grandes */
+		section:last-of-type {
+			margin-bottom: 0 !important;
 		}
 	}
 

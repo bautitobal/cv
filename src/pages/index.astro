@@ -8,6 +8,7 @@ import Hero from '@/components/sections/Hero.astro';
 import Projects from '@/components/sections/Projects.astro';
 import Skills from '@/components/sections/Skills.astro';
 import KeyboardManager from '@/components/KeyboardManager.astro'
+import PrintFooter from '@/components/PrintFooter.astro';
 
 import { basics } from "@cv"
 import Languages from '@/components/sections/Languages.astro';
@@ -16,23 +17,16 @@ const { name, label } = basics
 ---
 
 <Layout title={`${name}'s Minimalist CV - ${label}`}>
-	<main>
-		<Hero />
-		<About />
-		<Experience />
-		<Education />
-		<Languages />
-		<Skills />
-		<Projects />
-	</main>
+	<Hero />
+	<About />
+	<Experience />
+	<Education />
+	<Languages />
+	<Skills />
+	<Projects />
+	<PrintFooter />
 	
 	<KeyboardManager />
 </Layout>
 
-<style>
-	main {
-		padding: 4rem;
-		margin: auto;
-		width: 100%;
-	}
-</style>
+

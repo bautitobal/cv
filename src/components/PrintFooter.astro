@@ -1,0 +1,70 @@
+---
+// PrintFooter.astro - Componente que solo se muestra al imprimir
+---
+
+<div class="print-only">
+  <div class="print-footer-container">
+    <div class="print-text" data-en="My CV Website" data-es="Mi página web CV">My CV Website</div>
+    <div class="print-qr">
+      <img src="/cv-qr.webp" alt="QR code to my CV website" />
+    </div>
+  </div>
+</div>
+
+<script>
+  // Importar el inicializador de traducción
+  if (!(window as Window).translatorInitialized) {
+    (window as Window).translatorInitialized = true;
+    
+    import('../i18n/translator.js').then(module => {
+      module.initializeTranslator();
+    });
+  }
+</script>
+
+<style>
+  .print-only {
+    display: none; /* Oculto por defecto */
+  }
+  
+  .print-footer-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    gap: 5px;
+  }
+  
+  .print-text {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    font-weight: 400;
+  }
+  
+  .print-qr img {
+    width: 80px;
+    height: 80px;
+    border: none;
+    padding: 0;
+  }
+  
+  /* Solo mostrar al imprimir */
+  @media print {
+    .print-only {
+      display: block;
+      width: 100%;
+      margin-top: 10px; /* Un poco de espacio después de Projects */
+      padding-top: 0;
+      page-break-inside: avoid;
+      opacity: 0.8; /* Hacerlo ligeramente más sutil */
+    }
+    
+    .print-footer-container {
+      margin: 0;
+      padding: 0;
+    }
+  }
+</style>
