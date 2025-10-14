@@ -1,10 +1,3 @@
-import type { HTMLAttributes } from 'astro/types';
-
-interface TranslationProps extends HTMLAttributes<'span'> {
-  en: string;
-  es: string;
-}
-
 export function getTranslationByLanguage(key: string, lang = 'en', fallback = ''): string {
   if (lang === 'en') return key;
   

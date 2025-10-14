@@ -39,17 +39,17 @@
   const STORAGE_KEY = 'preferred-theme';
   
   // Obtener el tema actual del localStorage o usar 'system' por defecto
-  const getTheme = () => {
+  const getTheme = (): string => {
     return localStorage.getItem(STORAGE_KEY) || THEMES.SYSTEM;
   };
   
   // Guardar el tema seleccionado en localStorage
-  const saveTheme = (theme) => {
+  const saveTheme = (theme: string): void => {
     localStorage.setItem(STORAGE_KEY, theme);
   };
   
   // Función para aplicar el tema seleccionado
-  const applyTheme = (theme) => {
+  const applyTheme = (theme: string): void => {
     const htmlElement = document.documentElement;
     
     if (theme === THEMES.SYSTEM) {
@@ -68,8 +68,8 @@
   };
   
   // Función para actualizar la apariencia de los botones según el tema activo
-  const updateButtonsAppearance = (activeTheme) => {
-    const buttons = document.querySelectorAll('.theme-button');
+  const updateButtonsAppearance = (activeTheme: string): void => {
+    const buttons = document.querySelectorAll<HTMLButtonElement>('.theme-button');
     
     buttons.forEach(button => {
       const buttonTheme = button.getAttribute('data-theme');
@@ -95,8 +95,10 @@
     buttons.forEach(button => {
       button.addEventListener('click', () => {
         const newTheme = button.getAttribute('data-theme');
-        saveTheme(newTheme);
-        applyTheme(newTheme);
+        if (newTheme) {
+          saveTheme(newTheme);
+          applyTheme(newTheme);
+        }
       });
     });
   };

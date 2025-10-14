@@ -1,5 +1,4 @@
 ---
-import { getCurrentLanguage } from '../i18n/utils';
 
 interface Props {
   en: string;
@@ -29,8 +28,8 @@ const { en, es, tag = 'span', class: className = '' } = Astro.props;
 
 <script>
   // Importar el inicializador de traducción solo una vez por página
-  if (!window.translatorInitialized) {
-    window.translatorInitialized = true;
+  if (!(window as Window).translatorInitialized) {
+    (window as Window).translatorInitialized = true;
     
     import('../i18n/translator.js').then(module => {
       module.initializeTranslator();

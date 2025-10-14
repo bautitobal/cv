@@ -1,11 +1,10 @@
 ---
 // se ejecuta en el servidor o en build
-import { getCurrentLanguage } from '@/i18n/utils';
 
 const { title } = Astro.props;
 
 // Traducciones de títulos de sección
-const translations = {
+const translations: Record<string, string> = {
   "About": "Sobre mí",
   "Experience": "Experiencia",
   "Education": "Educación",
@@ -16,7 +15,7 @@ const translations = {
 
 // Inicializar con inglés por defecto para SSR
 const displayTitle = title;
-const esTitle = typeof title === 'string' ? translations[title] || title : title;
+const esTitle = typeof title === 'string' ? (translations[title] || title) : title;
 ---
 
 <section>
@@ -30,9 +29,8 @@ const esTitle = typeof title === 'string' ? translations[title] || title : title
 
 <script>
 // Importar el inicializador de traducción solo una vez por página
-// @ts-ignore - Ignorar error de TypeScript para variables globales personalizadas
-if (!(window as any).sectionTranslatorInitialized) {
-    (window as any).sectionTranslatorInitialized = true;
+if (!(window as Window).sectionTranslatorInitialized) {
+    (window as Window).sectionTranslatorInitialized = true;
     
     import('../i18n/translator.js').then(module => {
       module.initializeTranslator();

@@ -19,17 +19,17 @@
   const STORAGE_KEY = 'preferred-language';
   
   // Obtener el idioma actual del localStorage o usar 'en' por defecto
-  const getLanguage = () => {
+  const getLanguage = (): string => {
     return localStorage.getItem(STORAGE_KEY) || LANGUAGES.ENGLISH;
   };
   
   // Guardar el idioma seleccionado en localStorage
-  const saveLanguage = (lang) => {
+  const saveLanguage = (lang: string): void => {
     localStorage.setItem(STORAGE_KEY, lang);
   };
   
   // Función para aplicar el idioma seleccionado
-  const applyLanguage = (lang) => {
+  const applyLanguage = (lang: string): void => {
     console.log(`Applying language: ${lang}`);
     const htmlElement = document.documentElement;
     htmlElement.setAttribute('lang', lang);
@@ -51,8 +51,8 @@
   };
   
   // Función para actualizar la apariencia de los botones según el idioma activo
-  const updateButtonsAppearance = (activeLang) => {
-    const buttons = document.querySelectorAll('.lang-button');
+  const updateButtonsAppearance = (activeLang: string): void => {
+    const buttons = document.querySelectorAll<HTMLButtonElement>('.lang-button');
     
     buttons.forEach(button => {
       const buttonLang = button.getAttribute('data-lang');

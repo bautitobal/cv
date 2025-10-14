@@ -46,7 +46,7 @@ const SKILLS_ICONS: Record<string, any> = {
     <ul>
         {
             skills.map((skill) => {
-                const { name, keywords, palabras_clave } = skill;
+                const { name } = skill;
                 const iconName = name == "NextJS" ? "Next" : name == "CSS" ? "CSS3" : name == "TypeScript" ? "TypeScript" : name == "Astro" ? "AstroJS" : name
                 const Icon = SKILLS_ICONS[iconName]
                 
