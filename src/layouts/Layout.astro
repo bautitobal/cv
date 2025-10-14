@@ -1,7 +1,6 @@
 ---
 import { basics } from "@cv"
-import ThemeSwitcher from "@/components/ThemeSwitcher.astro";
-import LanguageSwitcher from "@/components/LanguageSwitcher.astro";
+import Navbar from "@/components/Navbar.astro";
 import { getCurrentLanguage, getPropertyBasedOnLanguage } from "@/i18n/utils";
 
 interface Props {
@@ -71,15 +70,17 @@ const summary = getPropertyBasedOnLanguage<string>(basics, 'summary', 'en');
 		</script>
 	</head>
 	<body>
-		<ThemeSwitcher />
-		<LanguageSwitcher />
-		<slot />
+		<Navbar />
+		<main>
+			<slot />
+		</main>
 	</body>
 </html>
 <style is:global>
 	:root {
 		/* Variables para tema claro (por defecto) */
 		--color-background: #fff;
+		--color-background-rgb: 255, 255, 255;
 		--color-text: #111;
 		--color-text-muted: #666;
 		--color-primary: #0070f3;
@@ -98,6 +99,7 @@ const summary = getPropertyBasedOnLanguage<string>(basics, 'summary', 'en');
 	html.dark {
 		/* Variables para tema oscuro */
 		--color-background: #121212;
+		--color-background-rgb: 18, 18, 18;
 		--color-text: #ffffff;
 		--color-text-muted: #dadada;
 		--color-primary: #3291ff;
@@ -164,6 +166,10 @@ const summary = getPropertyBasedOnLanguage<string>(basics, 'summary', 'en');
 		margin: 0;
 		padding: 0;
 		transition: var(--theme-transition);
+	}
+	
+	main {
+		padding-top: 80px; /* Para compensar la altura de la barra de navegación */
 	}
 
 	a {

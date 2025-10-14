@@ -114,15 +114,18 @@
     gap: 4px;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
     z-index: 100;
     background-color: var(--color-card, #f9f9f9);
     padding: 4px 12px;
     border-radius: 20px;
     box-shadow: var(--shadow-sm);
+  }
+  
+  /* Estilos especiales para cuando está en el menú móvil */
+  .language-switcher.is-mobile {
+    padding: 8px;
+    width: 100%;
+    justify-content: flex-start;
   }
   
   .lang-button {
