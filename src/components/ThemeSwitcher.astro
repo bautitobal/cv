@@ -1,0 +1,168 @@
+---
+---
+
+<div class="theme-switcher no-print">
+  <button aria-label="Cambiar a modo claro" class="theme-button" data-theme="light">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </button>
+  <button aria-label="Cambiar a modo oscuro" class="theme-button" data-theme="dark">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <button aria-label="Usar tema del sistema" class="theme-button" data-theme="system">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+      <line x1="8" y1="21" x2="16" y2="21"></line>
+      <line x1="12" y1="17" x2="12" y2="21"></line>
+    </svg>
+  </button>
+</div>
+
+<script>
+  // Definir constantes para el tema
+  const THEMES = {
+    LIGHT: 'light',
+    DARK: 'dark',
+    SYSTEM: 'system'
+  };
+  const STORAGE_KEY = 'preferred-theme';
+  
+  // Obtener el tema actual del localStorage o usar 'system' por defecto
+  const getTheme = () => {
+    return localStorage.getItem(STORAGE_KEY) || THEMES.SYSTEM;
+  };
+  
+  // Guardar el tema seleccionado en localStorage
+  const saveTheme = (theme) => {
+    localStorage.setItem(STORAGE_KEY, theme);
+  };
+  
+  // Función para aplicar el tema seleccionado
+  const applyTheme = (theme) => {
+    const htmlElement = document.documentElement;
+    
+    if (theme === THEMES.SYSTEM) {
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 
+        THEMES.DARK : THEMES.LIGHT;
+      
+      htmlElement.setAttribute('data-theme', systemTheme);
+      htmlElement.classList.toggle('dark', systemTheme === THEMES.DARK);
+    } else {
+      htmlElement.setAttribute('data-theme', theme);
+      htmlElement.classList.toggle('dark', theme === THEMES.DARK);
+    }
+    
+    // Actualizar apariencia de los botones
+    updateButtonsAppearance(theme);
+  };
+  
+  // Función para actualizar la apariencia de los botones según el tema activo
+  const updateButtonsAppearance = (activeTheme) => {
+    const buttons = document.querySelectorAll('.theme-button');
+    
+    buttons.forEach(button => {
+      const buttonTheme = button.getAttribute('data-theme');
+      button.classList.toggle('active', buttonTheme === activeTheme);
+    });
+  };
+  
+  // Inicializar el tema
+  const initTheme = () => {
+    const currentTheme = getTheme();
+    applyTheme(currentTheme);
+    
+    // Escuchar cambios en el esquema de colores del sistema
+    const systemThemeMedia = window.matchMedia('(prefers-color-scheme: dark)');
+    systemThemeMedia.addEventListener('change', () => {
+      if (getTheme() === THEMES.SYSTEM) {
+        applyTheme(THEMES.SYSTEM);
+      }
+    });
+    
+    // Agregar evento click a los botones de tema
+    const buttons = document.querySelectorAll('.theme-button');
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const newTheme = button.getAttribute('data-theme');
+        saveTheme(newTheme);
+        applyTheme(newTheme);
+      });
+    });
+  };
+  
+  // Ejecutar cuando el DOM esté cargado
+  document.addEventListener('DOMContentLoaded', initTheme);
+  
+  // También ejecutar inmediatamente en caso de que el script se cargue después
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTheme);
+  } else {
+    initTheme();
+  }
+</script>
+
+<style>
+  .theme-switcher {
+    display: flex;
+    gap: 8px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+  }
+  
+  .theme-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f1f1f1;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .theme-button:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+  }
+  
+  .theme-button.active {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  html.dark .theme-button {
+    background-color: #333;
+    color: #f1f1f1;
+  }
+  
+  html.dark .theme-button:hover {
+    background-color: #444;
+  }
+  
+  html.dark .theme-button.active {
+    background-color: #f1f1f1;
+    color: #333;
+  }
+  
+  @media print {
+    .theme-switcher {
+      display: none;
+    }
+  }
+</style>

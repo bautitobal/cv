@@ -10,7 +10,7 @@
     "location": {
       "address": "",
       "postalCode": "",
-      "city": "Buenos Aires",
+      "city": "Buenos Aires (GBA)",
       "countryCode": "AR",
       "region": "Argentina"
     },
@@ -49,7 +49,7 @@
       "startDate": "2022-03-14",
       "endDate": "2024-02-10",
       "summary": "Managed operations for a dental care product line, specializing in dentifrice pills. Developed strategic sales initiatives, expanded the client base, and increased market penetration through personalized customer engagement and targeted marketing campaigns.",
-      "highlights": ["Started the company"]
+      "highlights": ["Started the company", "College project", "Entrepreneurship"]
     }
   ],
   "volunteer": [
@@ -66,8 +66,8 @@
   "education": [
     {
       "institution": "National University of La Matanza",
-      "url": "https://www.unlam.edu.ar/",
-      "area": "Computer Engineer",
+      "url": "https://unlam.edu.ar/",
+      "area": "Computer Science",
       "studyType": "Bachelor",
       "startDate": "2024-06-14",
       "endDate": "2029-11-30",
@@ -79,7 +79,7 @@
     {
       "title": "Award",
       "date": "2014-11-01",
-      "awarder": "Company",
+      "awarder": "ejemplo",
       "summary": "There is no spoon."
     }
   ],
@@ -87,8 +87,8 @@
     {
       "name": "Certificate",
       "date": "2021-11-07",
-      "issuer": "Company",
-      "url": "https://certificate.com"
+      "issuer": "ejemplo",
+      "url": ""
     }
   ],
   "publications": [
@@ -109,62 +109,47 @@
     {
       "name": "JavaScript",
       "level": "Advanced",
-      "keywords": [""]
+      "keywords": ["ES6", "DOM Manipulation", "Asynchronous Programming"]
     },
     {
       "name": "Python",
       "level": "Intermediate",
-      "keywords": [""]
+      "keywords": ["Scripting", "Web Scraping", "Backend Development"]
     },
     {
       "name": "HTML",
       "level": "Master",
-      "keywords": [""]
+      "keywords": ["Semantic HTML", "Accessibility", "Responsive Design"]
     },
     {
-      "name": "CSS3",
+      "name": "CSS",
       "level": "Advanced",
       "keywords": [""]
     },
     {
       "name": "Bash",
       "level": "Beginner",
-      "keywords": [""]
+      "keywords": ["Scripting", "Automation", "Command Line"]
     },
     {
       "name": "Tailwind",
       "level": "Intermediate",
-      "keywords": [""]
+      "keywords": ["Utility-First CSS", "Responsive Design", "Component Libraries"]
     },
     {
-      "name": "NodeJS",
-      "level": "Beginner",
-      "keywords": [""]
-    },
-    {
-      "name": "SQLite",
-      "level": "Beginner",
-      "keywords": [""]
+      "name": "Astro",
+      "level": "Intermediate",
+      "keywords": ["Web Development", "Static Site Generation", "Performance Optimization"]
     },
     {
       "name": "Git",
       "level": "Intermediate",
-      "keywords": [""]
+      "keywords": ["Version Control", "Collaboration", "Branching"]
     },
     {
       "name": "GitHub",
       "level": "Advanced",
-      "keywords": [""]
-    },
-    {
-      "name": "NextJS",
-      "level": "Trainee",
-      "keywords": [""]
-    },
-    {
-      "name": "React",
-      "level": "Trainee",
-      "keywords": [""]
+      "keywords": ["Version Control", "Collaboration", "Pull Requests"]
     },
     {
       "name": "Web Development",
@@ -179,11 +164,11 @@
     },
     {
       "language": "English",
-      "fluency": "Intermediate (B1-B2)"
+      "fluency": "Intermediate (B2)"
     },
     {
       "language": "German",
-      "fluency": "Basic"
+      "fluency": "A2"
     }
   ],
   "interests": [
@@ -207,6 +192,14 @@
       "repo": "https://github.com/bautitobal/landing-page"
     },
     {
+      "name": "choribot",
+      "isActive": true,
+      "description": "A Twitch chat bot developed in Python, designed to enhance viewer engagement and interaction during live streams.",
+      "highlights": ["Interactive commands", "Moderation tools", "AI integration", "Scripting capabilities"],
+      "url": null,
+      "repo": "https://github.com/bautitobal/choribot"
+    },
+    {
       "name": "Web Scrapping",
       "isActive": false,
       "description": "A flexible program for scraping movie data, enabling data collection for analysis and visualization purposes.",
@@ -223,10 +216,18 @@
       "repo": "https://github.com/bautitobal/portfolio"
     },
     {
-      "name": "Unlam++",
+      "name": "Crypto News Scrapper",
       "isActive": false,
-      "description": "Coming Soon... A project for refactoring and redesigning my university's website (for educational purposes).",
-      "highlights": ["Objective: Create a more modern, user-friendly design to improve site navigation and accessibility."],
+      "description": "A Python-based web scrapper that collects and organizes the latest cryptocurrency news from various online sources.",
+      "highlights": ["Automated data extraction", "Organized news presentation"],
+      "url": null,
+      "repo": "https://github.com/bautitobal/crypto-news-scrapper"
+    },
+    {
+      "name": "bautitobal.com",
+      "isActive": false,
+      "description": "Coming Soon... A personal blog website where I will share articles about diverse topics including technology, programming, and personal experiences.",
+      "highlights":  null,
       "url": null,
       "repo": null
     }

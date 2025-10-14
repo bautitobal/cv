@@ -57,7 +57,7 @@ const profilesInfo = profiles.map(({ network, url }) => {
 ---
 
 <footer id="normal-footer" class="no-print">
-    Press <kbd>Cmd</kbd> + <kbd>K</kbd> to open the command menu
+    <span class="shortcut-text">Press <kbd>Cmd</kbd> + <kbd>K</kbd> to open the command menu</span>
 </footer>
 
 <div id="footer-button" class="no-print">
@@ -68,7 +68,7 @@ const profilesInfo = profiles.map(({ network, url }) => {
     height="32"
     viewBox="0 0 24 24"
     stroke-width="1.5"
-    stroke="#777"
+    stroke="currentColor"
     fill="none"
     stroke-linecap="round"
     stroke-linejoin="round"
@@ -191,6 +191,97 @@ interface Info {
     document.dispatchEvent(event)
   })
 
+  // Registrar handler de Enter de forma robusta y con logs para depuración.
+  const registerEnterHandler = () => {
+    document.addEventListener("keydown", (e) => {
+      try {
+        if (e.key !== "Enter") return
+
+        const instance = hotkeypad?.instance ?? document.querySelector('#hotkeypad')
+        if (!instance) {
+          console.debug("hotkeypad instance not found when pressing Enter")
+          return
+        }
+
+        // Determinar si el menú está visible (varios heurísticos)
+        const style = getComputedStyle(instance)
+        const isVisible = (() => {
+          if (!style) return false
+          if (style.display === "none" || style.visibility === "hidden" || style.opacity === "0") return false
+          if (instance.classList.contains("open") || instance.classList.contains("visible") || instance.classList.contains("show")) return true
+          return instance.offsetParent !== null
+        })()
+
+        if (!isVisible) return
+
+        // 1) Si el focus está dentro del menú, usarlo (tecla/Tab)
+        const activeInside = (document.activeElement && instance.contains(document.activeElement)) ? document.activeElement : null
+
+        // 2) Si el componente usa aria-activedescendant, respetarlo (muchos listboxes lo usan)
+        let el: Element | null = null
+        const activeId = instance.getAttribute && instance.getAttribute('aria-activedescendant')
+        if (activeId) {
+          const byId = instance.querySelector('#' + CSS.escape(activeId))
+          if (byId) {
+            el = byId
+            console.debug('Using aria-activedescendant ->', activeId)
+          }
+        }
+
+        // 3) Priorizar elementos con aria-selected/data-active
+        if (!el && activeInside) el = activeInside
+
+        if (!el) {
+          const prioritySelectors = [
+            '[aria-selected="true"]',
+            '[data-active="true"]',
+            '[data-selected="true"]',
+            '[role="option"][aria-selected="true"]',
+            '.is-active',
+            '.active',
+            '.selected'
+          ]
+
+          for (const sel of prioritySelectors) {
+            const found = instance.querySelector(sel)
+            if (found) {
+              el = found
+              break
+            }
+          }
+        }
+
+        // 4) Fallback: algún elemento con tabindex="0" dentro del menú (pero solo si no hay otro)
+        if (!el) {
+          const fallback = instance.querySelector('[tabindex="0"]')
+          if (fallback) el = fallback
+        }
+
+        if (el) {
+          console.debug("Enter pressed: invoking click on element:", el)
+          if (typeof (el as any).click === "function") {
+            ;(el as any).click()
+          } else {
+            el.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }))
+          }
+
+          e.preventDefault()
+        } else {
+          console.debug("Enter pressed but no selectable element found inside hotkeypad instance")
+        }
+      } catch (err) {
+        console.error("Error handling Enter for hotkeypad selection:", err)
+      }
+    })
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", registerEnterHandler)
+  } else {
+    // registrar inmediatamente si ya cargó
+    registerEnterHandler()
+  }
+
   
 
 </script>
@@ -223,9 +314,9 @@ interface Info {
     }
 
     #footer-button {
-      background: #fff;
+      background: var(--color-background, #fff);
       position: fixed;
-      border: 1px solid #eee;
+      border: 1px solid var(--color-border, #eee);
       right: 10px;
       bottom: 10px;
       width: 50px;
@@ -239,8 +330,9 @@ interface Info {
   }
 
   footer {
-    background: #fdfdfd;
-    border-top: 1px solid #eee;
+    background: var(--color-background, #fdfdfd);
+    color: var(--color-text-muted, #666);
+    border-top: 1px solid var(--color-border, #eee);
     position: fixed;
     bottom: 0px;
     width: 100%;
@@ -257,9 +349,16 @@ interface Info {
   }
 
   kbd {
-    background: #eee;
+    background: var(--color-card, #eee);
+    color: var(--color-text, #111);
     border-radius: 4px;
     padding: 2px 4px;
     font-size: 12px;
+    border: 1px solid var(--color-border, #eaeaea);
+  }
+  
+  .shortcut-text {
+    color: var(--color-text-muted, #666);
+    font-size: 0.85rem;
   }
 </style>

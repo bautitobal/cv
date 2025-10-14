@@ -33,14 +33,14 @@ import { projects } from '@cv'
                                 <p>{description}</p>
                             </header>
                             <footer>
-                                {
+                                {highlights && (
                                     highlights.map((highlight) => {
                                         return (
                                             <span>{highlight}</span>
                                         )
                                     })
-                                }
-                            
+                                )}
+
                             </footer>
                         </article>
                     </li>

@@ -17,6 +17,7 @@ import JavaScript from "@/icons/javascript.astro";
 import C from "@/icons/c.astro";
 import Python from "@/icons/python.astro";
 import Bash from "@/icons/bash.astro";
+import AstroJS from "@/icons/AstroJS.astro";
 // TODO: Obsidian
 
 
@@ -34,7 +35,8 @@ const SKILLS_ICONS: Record<string, any> = {
     GitHub,
     Next,
     Tailwind,
-    Bash
+    AstroJS,
+    Bash,
 
 }
 
@@ -44,7 +46,7 @@ const SKILLS_ICONS: Record<string, any> = {
     <ul>
         {
             skills.map(({ name }) => {
-                const iconName = name == "NextJS" ? "Next" : name
+                const iconName = name == "NextJS" ? "Next" : name == "CSS" ? "CSS3" : name == "TypeScript" ? "TypeScript" : name == "Astro" ? "AstroJS" : name
                 const Icon = SKILLS_ICONS[iconName]
                 return(
                     <li>
