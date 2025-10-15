@@ -1,13 +1,13 @@
 {
   "basics": {
     "name": "Bautista Tobal",
-    "label": "Computer Engineering Student with over 3 years of experience in Frontend Development",
+    "label": "Computer Science Student with over 3 years of experience in Frontend Development",
     "etiqueta": "Estudiante de Ingeniería en Informática con más de 3 años de experiencia en Desarrollo Frontend",
     "image": "/profile-pic.webp",
     "email": "bautitobal11@gmail.com",
     "phone": "+54 11-5617-3311",
     "url": "https://bautitobal.netlify.app",
-    "summary": "+3 years of experience in web development and Python. Computer Engineering student and Frontend & Python Developer from Buenos Aires, Argentina. Also, one of my passions is Cybersecurity.",
+    "summary": "+3 years of experience in web development and Python. Computer Science student and Frontend & Python Developer from Buenos Aires, Argentina. Also, one of my passions is Cybersecurity.",
     "resumen": "+3 años de experiencia en desarrollo web y Python. Estudiante de Ingeniería en Informática y Desarrollador Frontend & Python de Buenos Aires, Argentina. También, una de mis pasiones es la Ciberseguridad.",
     "location": {
       "address": "",
