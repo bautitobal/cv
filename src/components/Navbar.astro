@@ -148,13 +148,14 @@ import LanguageSwitcher from "./LanguageSwitcher.astro";
   }
   
   .navbar-content {
-    max-width: 1200px;
+    max-width: 700px;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 1rem;
     height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
   }
   
   .navbar-brand {
@@ -272,6 +273,10 @@ import LanguageSwitcher from "./LanguageSwitcher.astro";
       display: flex;
     }
     
+    .navbar-content {
+      padding: 0 0.75rem; /* Reducir el padding horizontal en móviles */
+    }
+    
     .navbar-right :global(.theme-switcher:not(.is-mobile)),
     .navbar-right :global(.language-switcher:not(.is-mobile)) {
       display: none;
@@ -281,6 +286,16 @@ import LanguageSwitcher from "./LanguageSwitcher.astro";
     .mobile-language-switcher :global(.language-switcher.is-mobile) {
       position: static;
       transform: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .navbar-brand {
+      font-size: 1.25rem; /* Texto más pequeño en móviles muy pequeños */
+    }
+    
+    .navbar-content {
+      padding: 0 0.5rem; /* Padding aún más pequeño en móviles pequeños */
     }
   }
 </style>

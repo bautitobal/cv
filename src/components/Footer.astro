@@ -1,0 +1,168 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer no-print">
+  <div class="footer-container">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3 data-en="About this CV" data-es="Sobre este CV">About this CV</h3>
+        <p data-en="This CV is open source. Built with technologies like Astro, Tailwind CSS, TypeScript, JSON Resume, and more." data-es="Este CV es de código abierto. Construido con tecnologías como Astro, Tailwind CSS, TypeScript, JSON Resume y más.">
+          This CV is open source. Built with technologies like Astro, Tailwind CSS, TypeScript, JSON Resume, and more.
+        </p>
+      </div>
+      
+      <div class="footer-column">
+        <h3 data-en="Contact" data-es="Contacto">Contact</h3>
+        <ul class="footer-links">
+          <li>
+            <a href="mailto:contact@example.com" rel="noopener noreferrer">
+              Email
+            </a>
+          </li>
+          <li>
+            <a href="https://linkedin.com/in/bautistatobal" target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/bautitobal" target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p class="copyright">
+        © {currentYear} <span data-en="Bautista Tobal. All rights reserved." data-es="Bautista Tobal. Todos los derechos reservados.">
+          Bautista Tobal. All rights reserved.
+        </span>
+      </p>
+      <p class="built-with">
+        <span data-en="Built with &lt;3" data-es="Hecho con &lt;3">Built with &lt;3</span>
+
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Importar el inicializador de traducción
+  if (!(window as Window).translatorInitialized) {
+    (window as Window).translatorInitialized = true;
+    
+    import('../i18n/translator.js').then(module => {
+      module.initializeTranslator();
+    });
+  }
+</script>
+
+<style>
+  .site-footer {
+    background-color: var(--color-card);
+    color: var(--color-text-muted);
+    padding: 2rem 0;
+    margin-top: 3rem;
+    border-top: 1px solid var(--color-border);
+  }
+  
+  .footer-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .footer-column {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .footer-column h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+  
+  .footer-column p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-links a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+  }
+  
+  .footer-links a:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+  
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    gap: 1rem;
+  }
+  
+  .copyright, .built-with {
+    font-size: 0.8rem;
+    margin: 0;
+  }
+  
+  .built-with a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .built-with a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 600px) {
+    .footer-content {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+  /* Ensure it doesn't show when printing */
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+  }
+</style>
