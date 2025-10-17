@@ -164,19 +164,21 @@ const summary = getPropertyBasedOnLanguage<string>(basics, 'summary', 'en');
 		transition: var(--theme-transition);
 	}
 	
-	body, figure {
+  body, figure {
 		margin: 0;
 		padding: 0;
 		transition: var(--theme-transition);
-	}
-	
-	main {
+		overflow-x: hidden;
+		width: 100%;
+	}	main {
 		padding-top: 70px;
 		max-width: 700px;
 		margin: 0 auto;
 		padding-left: 1rem;
 		padding-right: 1rem;
+		padding-bottom: 2rem;
 		width: 100%;
+		box-sizing: border-box;
 	}
 
 	a {

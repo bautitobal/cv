@@ -1,0 +1,213 @@
+---
+
+---
+
+<div class="cv-download-container">
+  <div class="main-buttons">
+    <a href="/cv.pdf" download="BautistaTobal-CV.pdf" class="download-button primary-button" data-language="en">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="download-icon">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+      <span data-en="Download CV" data-es="Descargar CV">Download CV</span>
+    </a>
+  </div>
+
+  <div class="alt-options">
+    <div class="language-option" data-language="en">
+      <p class="alt-label active">Or download in another language:</p>
+      <a href="/cv-es.pdf" download="BautistaTobal-CV-ES.pdf" class="alt-button active">
+        <span>Spanish version</span>
+      </a>
+    </div>
+
+    <div class="language-option" data-language="es">
+      <p class="alt-label">O descárgalo en otro idioma:</p>
+      <a href="/cv.pdf" download="BautistaTobal-CV.pdf" class="alt-button">
+        <span>Versión en inglés</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function() {
+    const updateButtonProperties = () => {
+      const currentLanguage = document.documentElement.getAttribute('data-language') || 'en';
+      const button = document.querySelector('.download-button');
+
+      if (currentLanguage === 'en') {
+        button.setAttribute('href', '/cv.pdf');
+        button.setAttribute('download', 'BautistaTobal-CV.pdf');
+        button.querySelector('span').textContent = 'Download CV';
+        button.classList.add('active'); // Asegurar que el botón sea visible
+      } else if (currentLanguage === 'es') {
+        button.setAttribute('href', '/cv-es.pdf');
+        button.setAttribute('download', 'BautistaTobal-CV-ES.pdf');
+        button.querySelector('span').textContent = 'Descargar CV';
+        button.classList.add('active'); // Asegurar que el botón sea visible
+      }
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', updateButtonProperties);
+    } else {
+      updateButtonProperties();
+    }
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'data-language') {
+          updateButtonProperties();
+        }
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      observer.observe(document.documentElement, { attributes: true });
+    });
+  })();
+</script>
+
+<style>
+  .cv-download-container {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .main-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .alt-options {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .alt-label {
+    font-size: 0.85rem;
+    margin: 0;
+    margin-bottom: 0.2rem;
+    opacity: 0;
+    display: none;
+    line-height: 1; 
+  }
+
+  .language-option {
+    display: none;
+  }
+
+  .language-option.active {
+    display: block;
+  }
+
+  .alt-label.active {
+    opacity: 1;
+    display: block;
+  }
+
+  .download-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .download-button.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .download-button:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .download-button:active {
+    transform: translateY(0);
+  }
+
+  .download-icon {
+    width: 16px;
+    height: 16px;
+    stroke: white !important;
+    fill: none !important;
+  }
+
+  .primary-button svg {
+    fill: none !important;
+    stroke: white !important;
+  }
+
+  .alt-button {
+    font-size: 0.85rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    line-height: 1.2;
+  }
+
+  .alt-button.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .alt-button:hover {
+    text-decoration: underline;
+    color: var(--color-secondary);
+    transform: translateX(2px);
+  }
+
+  .alt-button:before {
+    content: "→";
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 600px) {
+    .download-button {
+      width: 100%;
+      padding: 0.7rem 1rem;
+    }
+
+    .alt-button {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .alt-label {
+      text-align: center;
+    }
+  }
+
+  @media print {
+    .cv-download-container {
+      display: none !important;
+    }
+  }
+</style>
